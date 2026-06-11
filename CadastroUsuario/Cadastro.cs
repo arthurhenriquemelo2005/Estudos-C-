@@ -5,25 +5,25 @@ using System;
     static void Main(string[] args)
     {
         Console.WriteLine("Qual o nome do usuário: ");
-        string LoginUser = Console.ReadLine() ??"";
+        string loginUser = Console.ReadLine() ??"";
 
-        if(LoginUser == "")
+        if(loginUser == "")
         {
             Console.WriteLine("Erro");
         }
 
         Console.WriteLine("Informe sua idade: ");
-        int Idade = int.Parse(Console.ReadLine() ?? "");
+        int idade = int.Parse(Console.ReadLine() ?? "");
 
-        if(Idade <= 0)
+        if(idade <= 0)
         {
             Console.WriteLine("Idade inválida");
         }
 
         Console.WriteLine("Digite seu Email: ");
-        string Email = Console.ReadLine()?? "";
+        string email = Console.ReadLine()?? "";
 
-        if (!Email.Contains("@"))
+        if (!email.Contains("@"))
         {
             Console.WriteLine("Acesso Negado ! (O email não possui @)");
         }
@@ -31,9 +31,9 @@ using System;
         Console.Clear();
 
         Console.WriteLine(" === DADOS CADASTRADOS ===");
-        Console.WriteLine($"Nome: {LoginUser}");
-        Console.WriteLine($"Idade: {Idade}");
-        Console.WriteLine($"Email: {Email}");
+        Console.WriteLine($"Nome: {loginUser}");
+        Console.WriteLine($"Idade: {idade}");
+        Console.WriteLine($"Email: {email}");
 
         
     }
