@@ -4,6 +4,7 @@
 {
     static void Main(string [] args)
     {
+        //Definições das senhas
         const string login = "Arthur";
         const string senha = "1234";
 
@@ -13,6 +14,7 @@
         Console.WriteLine("Informe sua senha: ");
         string senhaUser = Console.ReadLine() ?? "";
 
+        //Validações da senha
         if(loginUser == login && senhaUser == senha)
         {
             Console.WriteLine("Acessso liberado");
