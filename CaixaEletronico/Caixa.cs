@@ -29,7 +29,7 @@ class Caixa
             switch (opcao)
             {
                 case 1:
-
+                    //Limpa a tela
                     Console.Clear();
                     Console.WriteLine($"Saldo atual R${saldo:F2}");
                     break;
