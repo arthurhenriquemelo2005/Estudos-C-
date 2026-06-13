@@ -12,16 +12,18 @@ class Matricula
         string nomeCurso = Console.ReadLine()?? "";
 
         Console.WriteLine("Qual se turno: ");
+        //.ToLower para mandar tudo em minúsculo
         string turnoAluno = (Console.ReadLine()??"").ToLower();
+        //Validações de turnos
         if(turnoAluno != "manhã" &&
         turnoAluno != "tarde" &&
         turnoAluno != "noite")
         {
             Console.WriteLine("Não existe esse turno");
-            return;
+            return; //(return) para parar o sistema aqui
         }
 
-        Console.Clear();
+        Console.Clear(); // Limpar a tela
         Console.WriteLine(" === MATRÍCULA REALIZADA === ");
         Console.WriteLine($"Aluno: {nomeAluno} ");
         Console.WriteLine($"Curso: {nomeCurso}");
