@@ -65,7 +65,7 @@ class Locadora
                 case 4:
 
                     Console.WriteLine("Saindo...");
-                    Environment.Exit(0);
+                    loop = false;
                     break;
                     
                 default:
