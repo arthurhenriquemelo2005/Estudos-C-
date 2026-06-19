@@ -6,11 +6,14 @@ class Barbearia
     {
         bool loop = true;
         string corteEscolhido = "";
+        //Declarando lista
+        List<TimeOnly> listaHorarios = new List<TimeOnly>();
+        
 
         while (loop)
         {
             Console.WriteLine("[1] Agendar horário");
-            Console.WriteLine("[2]");
+            Console.WriteLine("[2] ");
             Console.WriteLine("[3]");
             Console.WriteLine("[4]");
 
@@ -53,7 +56,9 @@ class Barbearia
                     } 
 
                     Console.WriteLine("Digite horário do agentamento (Ex: 15:25)");
-                    TimeOnly horaAgendamento = TimeOnly.Parse(Console.ReadLine() ?? "00:00");
+                    TimeOnly horaAgendamento = TimeOnly.Parse(Console.ReadLine() ?? "");
+
+                    listaHorarios.Add(horaAgendamento);
                     
                     Console.Clear();
                     Console.WriteLine($"=== AGENDAMENTO REALIZADO ===");
@@ -63,6 +68,20 @@ class Barbearia
                     
                     break;
                 case 2:
+
+                    Console.WriteLine("=== HORÁRIO DE AGENDAMENTOS ===");
+                    
+                    if(listaHorarios.Count == 0)
+                    {
+                        Console.WriteLine("Nenhum horário agendado até o momento");
+                    }
+                    else
+                    {
+                        for(int i = 0; i< listaHorarios.Count; i++)
+                        {
+                            Console.WriteLine($"Agendamentos {i + 1}: {listaHorarios[i].ToString ("HH:mm")}");
+                        }
+                    }
 
                     break;
                 
