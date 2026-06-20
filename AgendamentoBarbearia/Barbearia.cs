@@ -8,14 +8,17 @@ class Barbearia
         string corteEscolhido = "";
         //Declarando lista
         List<TimeOnly> listaHorarios = new List<TimeOnly>();
+
+        TimeOnly abertura = new TimeOnly (8,0);
+        TimeOnly fechamento = new TimeOnly(22,0);
         
 
         while (loop)
         {
             Console.WriteLine("[1] Agendar horário");
-            Console.WriteLine("[2] ");
-            Console.WriteLine("[3]");
-            Console.WriteLine("[4]");
+            Console.WriteLine("[2] Ver horários agendados");
+            Console.WriteLine("[3] Cancelar agendamento");
+            Console.WriteLine("[4] Sair");
 
         Console.WriteLine("Escolha uma das opções: ");
         int escolha = int.Parse(Console.ReadLine()?? "");
@@ -58,6 +61,17 @@ class Barbearia
                     Console.WriteLine("Digite horário do agentamento (Ex: 15:25)");
                     TimeOnly horaAgendamento = TimeOnly.Parse(Console.ReadLine() ?? "");
 
+                    if (horaAgendamento < abertura || horaAgendamento > fechamento) {
+                        
+                        Console.WriteLine($"A barbearia funciona das {abertura} até as {fechamento}");
+                        break;
+                    }
+                    if (listaHorarios.Contains(horaAgendamento))
+                    {
+                        Console.WriteLine($"Horário indisponivel o horário {horaAgendamento} já esta ocupado");
+                        break;
+                    }
+
                     listaHorarios.Add(horaAgendamento);
                     
                     Console.Clear();
@@ -85,6 +99,42 @@ class Barbearia
 
                     break;
                 
+                case 3:
+
+                if(listaHorarios.Count == 0)
+                    {
+                        Console.WriteLine("Não tem agendamentos, portanto não tem como ser cancelado");
+                        break;                      
+                    }
+                    
+                    Console.WriteLine("Deseja cancelar agendamento (s/n)");
+                    char cancelarAgendamento = char.ToLower(Console.ReadKey().KeyChar);
+                    if(cancelarAgendamento == 's')
+                    {
+                        for(int i = listaHorarios.Count -1; i >= 0; i--)
+                        {
+                            listaHorarios.RemoveAt(i);
+                            Console.Clear();
+                            Console.WriteLine($"Agendamento Cancelado cancelado");
+
+                            break;
+                        }
+                        
+                    }else if(cancelarAgendamento == 'n')
+                    {
+                        Console.Clear();
+                    }
+                    break;
+
+                case 4:
+                    Console.WriteLine("Saindo...");
+                    Environment.Exit(0);
+                    break;
+                
+                default:
+                    
+                    Console.WriteLine("Opção inválida");
+                    break;
             }
         }
 
