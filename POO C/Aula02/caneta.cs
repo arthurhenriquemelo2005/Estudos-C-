@@ -15,18 +15,18 @@ public class Caneta
         Console.WriteLine("Uma caneta " + this.cor);
         Console.WriteLine("Uma caneta de ponta " + this.ponta);
 
-        if (tampada)
-        {
-            Console.WriteLine("Caneta tampada");
-        }
-        else
-        {
-            Console.WriteLine("Caneta destampada");
-        }
+        
     }
     public void rabiscar()
     {
-       
+        if (this.tampada == true)
+        {
+            Console.WriteLine("Erro: Não posso rabiscar");
+        }
+        else
+        {
+            Console.WriteLine("Posso rabiscar");
+        }
     }
 
     public void tampar()
@@ -36,6 +36,6 @@ public class Caneta
 
     public void destampar()
     {
-        tampada = false;
+        this.tampada = false;   
     }
 }
