@@ -26,7 +26,7 @@ public class Caneta
     }
     public void rabiscar()
     {
-        // Seu código aqui
+       
     }
 
     public void tampar()
